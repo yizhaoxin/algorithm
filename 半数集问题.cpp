@@ -1,3 +1,28 @@
+#include <iostream>
+#include "fstream"
+using namespace std;
+
+int set(int m){
+    int i,count=1;
+    for(i=1;i<=m/2;i++){
+        count=count+set(i); //该方法存在重复计算
+    }
+    return count;
+}
+
+int main()
+{
+    ifstream fin;
+    fin.open("input.txt");
+    ofstream fout("output.txt");
+    int n;
+    fin>>n;
+    //printf("%d",n);
+    fout<<set(n)<<endl;
+    fin.close();
+    fout.close();
+    return 0;
+}
 
 
 
